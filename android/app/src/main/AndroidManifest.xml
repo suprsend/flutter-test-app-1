@@ -26,7 +26,7 @@
             </intent-filter>
         </activity>
         <service
-            android:name=".MyFirebaseMessagingService"
+            android:name="app.suprsend.fcm.SSFirebaseMessagingService"
             android:enabled="true"
             android:exported="false">
             <intent-filter>

@@ -16,7 +16,7 @@ internal class MyFirebaseMessagingService : FirebaseMessagingService() {
 
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         super.onMessageReceived(remoteMessage)
-        SSNotificationHelper.showFCMNotification(this, remoteMessage)
+        SSNotificationHelper.showFCMNotification(this, remoteMessage) // if message is from suprsend then only it gets rendered
         // other providers method
     }
 }

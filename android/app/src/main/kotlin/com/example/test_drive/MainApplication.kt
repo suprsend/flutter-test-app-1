@@ -12,15 +12,8 @@ class MainApplication: Application() {
 
     override fun onCreate() {
 
-        SSApi.init(this, "kfWdrPL1nFqs7OUihiBn", "From1HA1ZiSXs3ofBHXh", "https://collector-staging.suprsend.workers.dev/")
+        SSApi.init(this, "SS_KEY", "SS_SECRET")
         super.onCreate()
 
-        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
-            if (!task.isSuccessful) {
-                return@OnCompleteListener
-            }
-            val fcmToken = task.result
-            SSApi.getInstance().getUser().setAndroidFcmPush(fcmToken)
-        })
     }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:suprsend_flutter_sdk/suprsend.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:onesignal_flutter/onesignal_flutter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -59,9 +60,19 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    OneSignal.Debug.setLogLevel(OSLogLevel.verbose);
+    OneSignal.initialize("ONESIGNAL_ID");
+    OneSignal.Notifications.requestPermission(true);
+    // suprsend.askNotificationPermission();
+  }
+
   void _incrementCounter() {
-    suprsend.identify("katta.sivaram@suprsend+01.com");
-    suprsend.askNotificationPermission();
+    suprsend.identify("SS_DISTINCT_ID");
+
     setState(() {
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below
